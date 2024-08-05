@@ -6,7 +6,6 @@ body{
     height: 100vh;
 }
 
-
 body *{
   font-family: "Inter", sans-serif;
   color: var(--text-color);
@@ -69,10 +68,7 @@ width: 112px;
 position: relative;
 width: 64px;
 margin: 4px auto;
-
-
 }
-
 
 #switch button{
  width: 32px;
@@ -84,28 +80,24 @@ margin: 4px auto;
  position: absolute;
  top: 50%;
  left: 0px;
- right: auto;
  z-index: 1;
  transform: translateY(-50%);
- transition: all 0.4s;
+ animation: slide-back .2s;
+
 }
 
 
 .light #switch button {
-    right: 0px;
-    left: initial;
-    transition: all 0.4s;
-}
+ animation: slide-in .2s forwards;  
+ }
 
 #switch button:hover{  
-padding: 20px;
+outline: 8px solid var(--highlight-color);
 }
 
 .active{
 left: calc(100% - 32px)
 }
-
-
 
 #switch span{
     display: block;
@@ -118,7 +110,6 @@ left: calc(100% - 32px)
     border-radius: 999px;
     
 }
-
 
 /* LISTA */
 ul  {
@@ -152,7 +143,6 @@ ul li a:hover{
 
 #social-links{
     display: flex;
-    
     padding: 24px 0px;
     font-size: 24px;
     justify-content: center;
@@ -172,8 +162,6 @@ background: var(--highlight-color);
 padding: 16px;
 }
 
-
-
 footer{
 padding: 24px 0px;
 text-align: center;
@@ -183,9 +171,27 @@ font-size: 14px;
 @media (min-width: 700px){
 :root{
     --bg-url: url(./assets/bg-desktop.jpg);
-
+}
     .light{
-        --bg-url: url(./assets/bg-desktop-light.jpg);
+    --bg-url: url(./assets/bg-desktop-light.jpg);
     }
 }
+
+@keyframes slide-in {
+    from{
+    left: 0;
+    }
+    to{
+    left: 50%;
+    }
+}
+
+@keyframes slide-back{
+ from{
+    left:50%;
+}
+ to{
+ left: 0;
+ }
+
 }
